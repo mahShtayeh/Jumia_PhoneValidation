@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Jumia - Phone validation</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+ 
+<body>
+<div class="container">
+	<h1>Phones Table</h1>
+	<div class="row col-md-7 table-responsive">
+		<table id="phoneTable" class="table">
+			<thead>
+				<tr>
+					<th>Customer</th>
+					<th>Country</th>
+					<th>State</th>
+					<th>Country Code</th>
+					<th>Number</th>
+				</tr>
+			</thead>
+			<tbody>
+				 <tr th:each="phoneNumber : ${phoneNumbers}"
+				 	 th:style="${phoneNumber.valid} ? 'color: black' : 'color: red'">
+			        <td th:text="${phoneNumber.customerName}">Mahmoud</td>
+					<td th:text="${phoneNumber.countryPhone.countryName}">Egypt</td>
+			        <td th:text="${phoneNumber.valid} ? 'Valid' : 'Invalid'">invalid</td>
+			        <td th:text="${phoneNumber.countryPhone.counrtyCode}">+000</td>
+			        <td th:text="${phoneNumber.number}">00000</td>
+			    </tr>
+			</tbody>
+		</table>
+	</div>
+</div>
